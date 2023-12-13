@@ -7,7 +7,7 @@
 
 ### 初始化配置
 
-#### 编写redis-cluster.template模板
+#### 1. 编写redis-cluster.template模板
 
 ```text
     port ${PORT}
@@ -25,7 +25,7 @@
     auto-aof-rewrite-min-size 64mb
 ```
 
-#### 创建本地conf文件
+#### 2. 创建本地conf文件
 
 ```jshelllanguage
     for port in `seq 7001 7006` ; do \
@@ -35,7 +35,7 @@
     done
 ```
 
-#### 编写redis-cluster.yml
+#### 3. 编写redis-cluster.yml
 
 ```yaml
 version : '3.7'
@@ -133,13 +133,13 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-#### docker-compose 执行
+#### 4. docker-compose 执行
 
 ```jshelllanguage
 docker-compose -f redis-cluster.yml up -d
 ```
 
-#### 启动redis集群
+#### 5. 启动redis集群
 ```jshelllanguage
  docker exec -it redis7001 redis-cli -p 7001 --cluster create 192.168.28.1:7001 192.168.28.1:7002 192.168.28.1:7003 192.168.28.1:7004 192.168.28.1:7005 192.168.28.1:7006 --cluster-replicas 1
 ```

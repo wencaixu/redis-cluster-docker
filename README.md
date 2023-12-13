@@ -3,7 +3,7 @@
 ### 前置条件
 
 1. 安装 docker-component
-2. 下载 redis 镜像
+2. 下载 redis 镜像 `docker pull redis:latest`
 
 ### 初始化配置
 
